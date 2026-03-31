@@ -1,0 +1,26 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'Practica 3: Sistema Musculoesquelético'
+message: 'Modelado de Sistemas Fisiológicos / Ingenieria Biomedica '
+type: software
+authors:
+  - given-names: Angelica Ashia
+    family-names: Haro Najar
+    email: l23210708@tectijuana.edu.mx
+    affiliation: 'Tecnologico Nacional de México '
+identifiers:
+  - type: url
+    value: 'https://github.com/AshiaHaro2004/MSFPractica3'
+    description: Repositorio Github
+repository-code: 'https://github.com/AshiaHaro2004/MSFPractica3'
+keywords:
+  - Músculo esquelético
+  - Contracción muscular
+  - Fuerza (F(t))
+  - Control neuromuscular
+  - Respuesta dinámica
+license: BSD-2-Clause
+version: '1.0'
+date-released: '2026-03-30'
