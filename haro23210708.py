@@ -17,9 +17,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-# =========================================================
-# PARÁMETROS
-# =========================================================
+
 F0 = 1.0
 alpha = 0.25
 Cg = 10e-6
@@ -27,22 +25,15 @@ Cp = 100e-6
 R_control = 100
 R_caso = 10e3
 
-# =========================================================
-# TIEMPO
-# =========================================================
 t = np.arange(0, 10.001, 1e-3)
 
-# =========================================================
-# ENTRADA
-# =========================================================
+
 A = F0 / (1 + alpha)
 
 u = np.zeros_like(t)
 u[(t >= 1) & (t <= 2)] = A
 
-# =========================================================
-# MODELOS
-# =========================================================
+
 def rc_ce(u, t, tau):
     y = np.zeros_like(u)
     dt = t[1] - t[0]
@@ -65,9 +56,7 @@ F_control_FT = rc_ft(u, t, tau_control)
 F_caso_CE = rc_ce(u, t, tau_caso)
 F_caso_FT = rc_ft(u, t, tau_caso)
 
-# =========================================================
-# PID
-# =========================================================
+
 def pid_response(u, t, tau, Kp, Ki, Kd):
     num = [Kd, Kp, Ki]
     den = [tau + Kd, 1 + Kp, Ki]
@@ -77,17 +66,13 @@ def pid_response(u, t, tau, Kp, Ki, Kd):
 
 PID_caso = pid_response(u, t, tau_caso, 45, 120, 0.02)
 
-# =========================================================
-# ESTILO
-# =========================================================
+
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['mathtext.fontset'] = 'cm'
 
 fig, axs = plt.subplots(2, 1, figsize=(7.2, 5), facecolor='white')
 
-# =======================
-# SUBGRÁFICA 1: CONTROL
-# =======================
+
 axs[0].plot(
     t, F_control_CE,
     '-', lw=2.2, color='#6A5ACD',
@@ -115,10 +100,7 @@ axs[0].legend(
     frameon=False
 )
 
-# =======================
-# SUBGRÁFICA 2: CASO vs CONTROL
-# SOLO 4 LÍNEAS
-# =======================
+
 axs[1].plot(
     t, F_control_FT,
     '--', lw=3.0, color='#FFD700',
@@ -159,9 +141,7 @@ axs[1].legend(
     frameon=False
 )
 
-# =======================
-# FORMATO GENERAL
-# =======================
+
 for ax in axs:
     ax.tick_params(direction='in', top=True, right=True)
     for spine in ax.spines.values():
